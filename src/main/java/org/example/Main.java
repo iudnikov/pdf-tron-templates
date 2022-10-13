@@ -15,22 +15,23 @@ public class Main {
         String outputFilename = "result.pdf";
         PDFDoc pdfdoc = new PDFDoc();
         OfficeToPDFOptions officeToPDFOptions = new OfficeToPDFOptions();
+        String data = "{\n" +
+                "  \"foo\": \"Bar\",\n" +
+                "  \"rows\": [\n" +
+                "    {\n" +
+                "      \"one\": \"foo\",\n" +
+                "      \"two\": \"bar\",\n" +
+                "      \"three\": \"baz\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"one\": \"foo2\",\n" +
+                "      \"two\": \"bar1\",\n" +
+                "      \"three\": \"baz3\"\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
         officeToPDFOptions.setTemplateParamsJson(
-                "{\n" +
-                        "  \"foo\": \"Bar\",\n" +
-                        "  \"rows\": [\n" +
-                        "    {\n" +
-                        "      \"one\": \"foo\",\n" +
-                        "      \"two\": \"bar\",\n" +
-                        "      \"three\": \"baz\"\n" +
-                        "    },\n" +
-                        "    {\n" +
-                        "      \"one\": \"foo2\",\n" +
-                        "      \"two\": \"bar1\",\n" +
-                        "      \"three\": \"baz3\"\n" +
-                        "    }\n" +
-                        "  ]\n" +
-                        "}"
+                data
         );
         Convert.officeToPdf(pdfdoc, input_path + inputFilename, officeToPDFOptions);
 
